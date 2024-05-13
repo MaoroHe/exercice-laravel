@@ -14,5 +14,36 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/jobs', function() {
+    return view('jobs', [
+            'jobs' => [
+            [
+                'id' => 1,
+                'title' => 'Développeur web',
+                'salary' => '30k',
+            ],
+            [
+                'id' => 2,
+                'title' => 'Développeur mobile',
+                'salary' => '35k',
+            ],
+            [
+                'id' => 3,
+                'title' => 'Designer',
+                'salary' => '25k',
+            ],
+        ]
+    ]);
+});
+
+Route::get('/jobs/{id}', function ($id) {
+    dd($id);
+    return view('contact');
+});
+
+Route::get('/contact', function() {
+    return view('contact');
 });
