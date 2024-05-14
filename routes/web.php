@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Jobs;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,29 +20,17 @@ Route::get('/', function () {
 
 Route::get('/jobs', function() {
     return view('jobs', [
-            'jobs' => [
-            [
-                'id' => 1,
-                'title' => 'Développeur web',
-                'salary' => '30k',
-            ],
-            [
-                'id' => 2,
-                'title' => 'Développeur mobile',
-                'salary' => '35k',
-            ],
-            [
-                'id' => 3,
-                'title' => 'Designer',
-                'salary' => '25k',
-            ],
-        ]
+            'jobs' => Jobs::all(),
     ]);
 });
 
 Route::get('/jobs/{id}', function ($id) {
-    dd($id);
-    return view('contact');
+
+    $job = Jobs::find($id);
+
+    return view('job', [
+        'job' => $job
+    ]);
 });
 
 Route::get('/contact', function() {

@@ -17,6 +17,7 @@
   <body class="h-full">
   ```
   -->
+  
 <div class="min-h-full">
     <nav class="bg-pink-600">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
